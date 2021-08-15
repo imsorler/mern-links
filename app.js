@@ -2,8 +2,12 @@ const express = require('express')
 const config = require('config')
 const mongoose = require('mongoose')
 
+const auth_route = require('./routes/auth.routes')
+
 const app = express()
 const PORT = config.get('port') || 5000
+
+app.use('/api/auth', auth_route)
 
 async function start() {
   try {
