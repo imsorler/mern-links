@@ -1,9 +1,5 @@
 import React from 'react'
 
 export const CreatePage = () => {
-  return (
-    <div>
-      <h1>Create page</h1>
-    </div>
-  )
+  return <h1>Create Page</h1>
 }
