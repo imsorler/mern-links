@@ -1,5 +1,6 @@
 {
   "port": 5000,
   "mongoURI": "mongodb+srv://root:beta1234@cluster0.9twps.mongodb.net/mern?retryWrites=true&w=majority",
-  "jwtSecret": "my sUpER secret KEY"
+  "jwtSecret": "my sUpER secret KEY",
+  "baseUrl": "http://localhost:5000"
 }
