@@ -1,5 +1,6 @@
 const express = require('express')
 const config = require('config')
+const path = require('path')
 const mongoose = require('mongoose')
 
 const auth_route = require('./routes/auth.routes')
@@ -14,6 +15,14 @@ app.use(express.json({ extended: true }))
 app.use('/api/auth', auth_route)
 app.use('/api/link', link_route)
 app.use('/t', redirect_route)
+
+if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+}
 
 async function start() {
   try {
